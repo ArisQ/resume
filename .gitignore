@@ -2,3 +2,8 @@
 *.log
 *.out
 *.swp
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+__latexindent_temp.tex
+.vscode/

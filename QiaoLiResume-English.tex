@@ -1,0 +1,181 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+% (c) 2011 Scott Clark <sc932@cornell.edu> http://cam.cornell.edu/~sc932
+%
+
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+% \usepackage[UTF8]{ctex}
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+\robustify\cftdotfill
+
+%-----------------------------------------------------------
+%Font
+% \setCJKmainfont{Adobe Fangsong Std}
+% \setCJKmainfont{YaHei Consolas Hybrid}
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+%-----------------------------------------------------------
+%Margin setup
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{-0.25in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.75in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+
+%-----------------------------------------------------------
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+
+\textbf{{\Large Qiao Li}} & \textbf{\today} \\
+\texttt{qiaoli.pg@gmail.com} & \\ %\texttt{blog.lipbcu.love} \\
+\texttt{15026602557} & Software Engineer
+
+\end{tabular*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Education}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item
+	\ressubheading{Shanghai JiaoTong University}{Master}{Mechanical Engineering}{2013 - 2017}
+
+\item
+	\ressubheading{Northeast Petroleum University}{Bachelor}{Mechanical Design, Manufacturing and Automation
+	}{2009 - 2013}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Work Experience}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item
+	\ressubheading{An Hui Taier Holding Group Shanghai Robot System Co., Ltd}{Shanghai}{Software Engineer}{2017.7 - current}
+	\begin{itemize}
+      \resitem{Focused on Windows desktop software development including robot control program, user interface designment and application program interface with other programs. Backend server implement is another part of work.}
+	\end{itemize}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Project Experience}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item
+	\ressubheading{Server development for virtual reality devices}{}{An Hui Taier Holding Group Shanghai Robot System Co., Ltd}{2017.7 - 2018.2}
+	\begin{itemize}
+		\resitem{ {\bf Description:} Developed server based on Leaf framework with Golang to manage VR simulation devices through the Internet. Functions include device verification, remote start and stop, collecting the running logs, mobile payment based on weixin pay and alipay, as well as administration interface using RESTful APIs.}
+		\resitem{ {\bf Responsibility:} My work was to design the whole system and modules. Modified the Leaf framework to implement the communication protocol with TLS. Write the login module and remote start and stop module including the message diagrams and mysql tables design.}
+	  \end{itemize}
+
+\item
+	\ressubheading{VR parachuting simulator}{}{An Hui Taier Holding Group Shanghai Robot System Co., Ltd}{2017.1 - 2017.11}
+	\begin{itemize}
+		\resitem{ {\bf Description:} This project includes the development of parachuting game and the wightlessness simulation using the parachute simulator machine.\\
+		The game implemented the parachuting process including jumping, parachute-opening, gliding and landing. The game was developed by unreal engine.\\
+		The simulator program was developed by C++ and Qt. Functions include the position control of the servo motors through the EtherCAT protocol, obtaining the pull force by the force sensors through serial port, passing the force values to the game for charactor control and getting the charactor pose for simulation through interprocess communication. Simulation algorithm was developed to transfer the charactor pose to motor positions.}
+		\resitem{ {\bf Responsibility:} Developed and tested the simulation program with Qt, designed and implemented the interprocess communication interface between game and simulation program.}
+	\end{itemize}
+
+\item
+	\ressubheading{VR racing simulator with 6DOF motion platform}{}{An Hui Taier Holding Group Shanghai Robot System Co., Ltd}{2016.3 - 2017.1}
+	\begin{itemize}
+		\resitem{ {\bf Description:} Develop the control program for VR racing simulator which is a 6DOF Stewart motion platform.\\
+		The control program was developed by C++ and Qt. Functions include obtaining the pose of car in the game by shared memory, TCP/IP or reading the memory of game process directly, controlling the servo motor by UDP protocol, user interface development by Qt and VR HMD pose correction using DLL hijeck.}
+		\resitem{ {\bf Responsibility:} Developed and tested all functions of the control program.}
+	\end{itemize}
+
+\item
+	\ressubheading{Space docking hardware-in-loop simulation system}{}{State Key Laboratory of Mechanical System and Vibration, SJTU}{2014.7 - 2016.3}
+	\begin{itemize}
+		\resitem{ {\bf Description:} Developed hardware-in-loop simulation system for space dock ground test of aircraft, including the motion control development of the 9DOF platform, the implement of dynamic simulation, the user interface design and the development of the real time monitor.}
+		\resitem{ {\bf Responsibility:} Implemented the real time communication of the distributed system using reflective memory. Developed the user interface for the process control of the experiment and the data acquisition and visualization of real time monitor.}
+	\end{itemize}
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Skills}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item {\bf Programming Language:} C++(Advanced), Qt(Advanced), Matlab(Advanced), LabVIEW(Expert), Go(Good)
+
+\item {\bf OS:} Windows(Advanced), Linux(Good)
+
+% \item {\bf 控制理论:} PID控制，运动轨迹规划，运动学，动力学
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Graduate Info}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item 2015.12 {\bf China Post-Graduate Mathematical Contest in Modeling} third class
+
+\item 2011.12 {\bf College English Test-6}
+
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,180 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+% (c) 2011 Scott Clark <sc932@cornell.edu> http://cam.cornell.edu/~sc932
+%
+
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[UTF8]{ctex}
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+\robustify\cftdotfill
+
+%-----------------------------------------------------------
+%Font
+% \setCJKmainfont{Adobe Fangsong Std}
+% \setCJKmainfont{YaHei Consolas Hybrid}
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+%-----------------------------------------------------------
+%Margin setup
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{-0.25in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.75in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+
+%-----------------------------------------------------------
+\begin{document}
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+
+\textbf{{\Large 乔 立}} & \textbf{\today} \\
+\texttt{qiaoli.pg@gmail.com} & \\ %\texttt{blog.lipbcu.love} \\
+\texttt{15026602557} & 软件工程师
+
+\end{tabular*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{教育经历}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item
+	\ressubheading{上海交通大学}{硕士}{机械工程}{2013 - 2017}
+
+\item
+	\ressubheading{东北石油大学}{本科}{机械设计制造及其自动化}{2009 - 2013}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{工作经验}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item
+	\ressubheading{安徽泰尔控股集团上海机器人有限公司}{上海}{软件工程师}{2017.7 - current}
+	\begin{itemize}
+      \resitem{主要完成Windows桌面软件的开发,实现机器人的运动控制程序、UI界面和相关接口的设计,同时完成相关设备的联网后台服务器开发。}
+	\end{itemize}
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{项目经验}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item
+	\ressubheading{VR设备后台服务器开发}{}{安徽泰尔控股集团上海机器人有限公司}{2017.7 - 2018.2}
+	\begin{itemize}
+		\resitem{ {\bf 项目介绍:} 该项目采用Golang基于Leaf 源框架实现VR体感模拟设备的联网,实现设备认证,设备起动停止及异常运行记录收集,基于微信和支付宝支付的移动收费运行,以及RESTful后台管理接口开发。}
+		\resitem{ {\bf 职责描述:} 本人的主要工作为完成系统的架构设计和功能模块划分,修改Leaf 框架实现通过TLS的加密通讯,实现设备登录和起停记录模块,并完成相应的服务器客户端的消息格式设计和 MySQL 数据库的表和字段的设计。}
+	  \end{itemize}
+
+\item
+	\ressubheading{VR跳伞模拟器}{}{安徽泰尔控股集团上海机器人有限公司}{2017.1 - 2017.11}
+	\begin{itemize}
+		\resitem{ {\bf 项目介绍:} 该项目主要完成VR跳伞游戏的开发和游戏过程中的失重体感模拟。\\
+		游戏采用 UE4 完成不同的地图的跳伞过程,实现起跳,开伞,滑翔,落地等动作。 \\
+		体感模拟软件采用C++/Qt进行开发,基于EtherCAT接口实现电机的位置控制,实现游戏各个过程动作的模拟。通过串口通讯获取拉力传感器的拉力值,传递给游戏,实现角色的控制。模拟软件通过进程间通讯实现与游戏的数据交互,根据游戏状态规划出运动轨迹,实现姿态控制。}
+		\resitem{ {\bf 职责描述:} 本人的主要工作为采用Qt完成体感模拟软件功能的开发与测试,以及与游戏的通讯接口的设计与实现。}
+	\end{itemize}
+
+\item
+	\ressubheading{六自由度VR赛车运动模拟器}{}{安徽泰尔控股集团上海机器人有限公司}{2016.3 - 2017.1}
+	\begin{itemize}
+		\resitem{ {\bf 项目介绍:} 该项目通过六自由度的Stewart平台实现VR赛⻋游戏过程中的体感模拟。\\
+		模拟器软件采用C++/Qt进行开发,主要功能包括通过共享内存,TCP/IP,读取目标进程内存等方式实现游戏数据的获取,体感模拟算法和运动算法的实现,基于UDP通讯的伺服驱动器控制,基于Qt的UI界面开发以及通过DLL劫持实现运动过程中的VR姿态补偿。}
+		\resitem{ {\bf 职责描述:} 本人的主要工作为控制软件所有功能的开发与测试。}
+	\end{itemize}
+
+\item
+	\ressubheading{空间对接半物理仿真综合试验台}{}{上海交通大学重大装备设计与控制工程研究所}{2014.7 - 2016.3}
+	\begin{itemize}
+		\resitem{ {\bf 项目介绍:} 该项目主要完成空间对接半物理仿真试验台的研发,完成空间⻜行器的地面对接仿真试验。主要包括九自由度的并联机器人的运动控制,动力学仿真的实现,中央控制系统人机操作界面和实时监控系统的开发。}
+		\resitem{ {\bf 职责描述:} 本人的主要工作为采用LabVIEW完成上下位软件的开发,包括多系统实时通讯的实现,中央控制台人机交互界面和试验流程控制的开发,以及实时监控系统的数据采集和显示的开发。}
+	\end{itemize}
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{技能}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item {\bf 编程语言:} C++(熟练), Qt(熟练）, Matlab(熟练）, LabVIEW(精通）, Go(掌握）
+
+\item {\bf 平台:} Windows(熟练）, Linux(掌握）
+
+% \item {\bf 控制理论:} PID控制，运动轨迹规划，运动学，动力学
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{在校情况}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+
+\item 2015.12 {\bf 全国研究生数学建模竞赛三等奖}
+
+\item 2011.12 {\bf 大学英语六级}
+
+\end{itemize}
+
+\end{document}

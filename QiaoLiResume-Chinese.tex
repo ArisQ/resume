@@ -1,3 +1,5 @@
+% !TEX program = xelatex
+
 % (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
 % (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
 % (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
@@ -16,12 +18,15 @@
 \usepackage{framed}
 \usepackage{tocloft}
 \usepackage{etoolbox}
+\usepackage[colorlinks]{hyperref}
 \robustify\cftdotfill
 
 %-----------------------------------------------------------
 %Font
 % \setCJKmainfont{Adobe Fangsong Std}
 % \setCJKmainfont{YaHei Consolas Hybrid}
+\setCJKmainfont[ItalicFont={Adobe Kaiti Std}, BoldFont={Adobe Heiti Std}]{Adobe Fangsong Std}
+
 
 %-----------------------------------------------------------
 %Edit these values as you see fit
@@ -48,133 +53,145 @@
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
 \newcommand{\resheading}[1]{\vspace{8pt}
-  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
-    \begin{shaded}
+\parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+\begin{shaded}
 
 \setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
-    \end{shaded}
-  }\vspace{-5pt}
+\end{shaded}
+}\vspace{-5pt}
 }
 
 \newcommand{\ressubheading}[4]{
 \begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
-		\textbf{#1} & #2 \\
-		\textit{#3} & \textit{#4} \\
+\textbf{#1} & #2 \\
+\textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
+
 
 %-----------------------------------------------------------
 \begin{document}
 
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-
-\textbf{{\Large 乔 立}} & \textbf{\today} \\
-\texttt{qiaoli.pg@gmail.com} & \\ %\texttt{blog.lipbcu.love} \\
-\texttt{15026602557} & 软件工程师
-
+  \textbf{{\Large 乔 立}} & \\ % \textbf{\today} \\
+  \texttt{\href{mailto:qiaoli.pg@gmail.com}{qiaoli.pg@gmail.com}} & \\ % \texttt{\url{https://github.com/ArisQ}} \\
+  \texttt{15026602557} & 软件工程师
 \end{tabular*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \resheading{教育经历}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{itemize}
-
-\item
-	\ressubheading{上海交通大学}{硕士}{机械工程}{2013 - 2017}
-
-\item
-	\ressubheading{东北石油大学}{本科}{机械设计制造及其自动化}{2009 - 2013}
-
+  \item \ressubheading{上海交通大学}{硕士}{机械工程}{2013 - 2017}
+  \item \ressubheading{东北石油大学}{本科}{机械设计制造及其自动化}{2009 - 2013}
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\resheading{工作经验}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\resheading{工作经历}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
-
-\item
-	\ressubheading{安徽泰尔控股集团上海机器人有限公司}{上海}{软件工程师}{2017.7 - current}
-	\begin{itemize}
-      \resitem{主要完成Windows桌面软件的开发,实现机器人的运动控制程序、UI界面和相关接口的设计,同时完成相关设备的联网后台服务器开发。}
-	\end{itemize}
-
+  \item \ressubheading{上海哔哩哔哩科技有限公司}{上海}{资深开发工程师}{2020.3 - 至今}
+  \item \ressubheading{上海智槃智能科技有限公司}{上海}{研发经理/软件工程师}{2016.3 - 2020.1}
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \resheading{项目经验}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{itemize}
+  \item
+  \ressubheading{任务编排工作流引擎}{}{上海哔哩哔哩科技有限公司}{2020.3 - 至今}
+  \begin{itemize}
+    \resitem{ {\bf 项目介绍:} Bvcflow任务编排工作流系统是B站稿件生产的核心流程系统，对用户上传的视频稿件，按照预设的顺序完成视频的检测、截图、转码、分发等计算任务，支撑单日百万量级稿件的生产。}
+    \resitem{ {\bf 职责描述:}
+      \begin{itemize}
+        % \item 开发与维护
+        \item 实现任务编排从单个任务依次串行执行到多任务并行执行的改造，支持以DAG描述任务间的依赖关系，提高生产流程的执行效率。
+        \item 优化任务状态机模型和实现，优化mongo的热点更新问题和查询索引，从而降低mongo负载，提升任务并发度，并支持横向扩展。
+        % 60% mongo负载， 任务并发2w => 70w*n
+        \item 完成openresty到go的技术栈迁移和重构，设计并实现新的系统架构，完成容器化、模块化改造。
+      \end{itemize}
+    }
+  \end{itemize}
 
-\item
-	\ressubheading{VR设备后台服务器开发}{}{安徽泰尔控股集团上海机器人有限公司}{2017.7 - 2018.2}
-	\begin{itemize}
-		\resitem{ {\bf 项目介绍:} 该项目采用Golang基于Leaf 源框架实现VR体感模拟设备的联网,实现设备认证,设备起动停止及异常运行记录收集,基于微信和支付宝支付的移动收费运行,以及RESTful后台管理接口开发。}
-		\resitem{ {\bf 职责描述:} 本人的主要工作为完成系统的架构设计和功能模块划分,修改Leaf 框架实现通过TLS的加密通讯,实现设备登录和起停记录模块,并完成相应的服务器客户端的消息格式设计和 MySQL 数据库的表和字段的设计。}
-	  \end{itemize}
+  \item \ressubheading{对象存储系统}{}{上海哔哩哔哩科技有限公司}{2020.3 - 至今}
+  \begin{itemize}
+    \resitem{ {\bf 项目介绍:} UpOS对象存储系统是B站自建的存储系统，承接了所有的用户投稿和转码后的视频文件，文件数量超百亿，存储容量200PB+。} % (cs+sz)269+167PB 2023.2.19
+    % 包括网关， 存储机器， TiDB的meta数据库， 负载均衡设备SLB/NS
+    %
+    \resitem{ {\bf 职责描述:}
+      \begin{itemize}
+        % \item 日常维护？包括？ TiDB
+        \item 完成存储系统的双机房架构设计和建设，实现系统双活，在控制机器成本的同时，保证机房故障时的可用性。
+        % 两地三中心，依赖基建，实际机房延迟高，数据库难以实现双活，只能同步
+        \item 优化上传电信氮气加速，开发加速控制系统，分析用户加速数据，在几乎不影响加速的情况下，节省三分之一的成本。 % 影响2% 节省35% 14w/月
+        \item 其他维护和开发工作，如集群扩容，防盗链的优化，支持向三副本和EC集群的迁移等。
+        % \item 存算平台
+        % \item 上传 回源  成本优化
+      \end{itemize}
+    }
+  \end{itemize}
 
-\item
-	\ressubheading{VR跳伞模拟器}{}{安徽泰尔控股集团上海机器人有限公司}{2017.1 - 2017.11}
-	\begin{itemize}
-		\resitem{ {\bf 项目介绍:} 该项目主要完成VR跳伞游戏的开发和游戏过程中的失重体感模拟。\\
-		游戏采用 UE4 完成不同的地图的跳伞过程,实现起跳,开伞,滑翔,落地等动作。 \\
-		体感模拟软件采用C++/Qt进行开发,基于EtherCAT接口实现电机的位置控制,实现游戏各个过程动作的模拟。通过串口通讯获取拉力传感器的拉力值,传递给游戏,实现角色的控制。模拟软件通过进程间通讯实现与游戏的数据交互,根据游戏状态规划出运动轨迹,实现姿态控制。}
-		\resitem{ {\bf 职责描述:} 本人的主要工作为采用Qt完成体感模拟软件功能的开发与测试,以及与游戏的通讯接口的设计与实现。}
-	\end{itemize}
+  \item
+  \ressubheading{HelloMap App}{}{上海智槃智能科技有限公司}{2018.2 - 2020.1}
+  \begin{itemize}
+    % \resitem{ {\bf 项目介绍:} HelloMap 是一款多人实时在线的协作地图，致力为用户提高出行效率。为用户提供共享交互式地图，丰富的可视化内容探索体验，记录、整理和分享信息等多项服务，可在不同出行场景中制作用户专属的个性化地图集，让大家的出行更省心省力。} % 官网地址 \url{https://hellomap.ai}（已停止维护）
+    \resitem{ {\bf 项目介绍:} HelloMap 是一款多人实时在线的协作地图，致力为用户提高出行效率，提供共享交互式地图，丰富的可视化内容探索体验，记录、整理和分享信息等多项服务，可在不同出行场景中制作用户专属的个性化地图集，让大家的出行更省心省力。} % 官网地址 \url{https://hellomap.ai}（已停止维护）
+    \resitem{ {\bf 职责描述:}
+      \begin{itemize}
+        \item 通过Python+Django+DRF完成App后台的功能开发，采用GeoDjango+PostGIS实现空间位置信息的存储与查询，采用Celery+RabbitMQ实现定时执行任务功能，基于第三方短信和IM服务实现验证码发送、多人在线协作等功能。
+        \item 通过Jenkins和Docker实现将后台应用自动部署到ECS云服务器，通过OSS对象存储实现用户上传图片的存储，配置CDN实现静态资源的访问加速。
+        \item 采用Vue+ElementUI实现后台管理系统前端页面的开发。
+        \item 开发团队的组建与管理，开发规范的制定，以及开发环境的搭建。
+        % \item 开发团队的组建与管理，根据产品需求制定技术方案，分配开发任务，解决开发中的疑难问题。
+        % \item 开发规范的制定，包括基于git flow的分支管理规范，代码风格和单元测试规范等。
+        % \item 开发环境的搭建，包括git服务器、Jenkins CI、Jira、Confluence、内网DNS及反向代理等。
+      \end{itemize}
+    }
+  \end{itemize}
 
-\item
-	\ressubheading{六自由度VR赛车运动模拟器}{}{安徽泰尔控股集团上海机器人有限公司}{2016.3 - 2017.1}
-	\begin{itemize}
-		\resitem{ {\bf 项目介绍:} 该项目通过六自由度的Stewart平台实现VR赛⻋游戏过程中的体感模拟。\\
-		模拟器软件采用C++/Qt进行开发,主要功能包括通过共享内存,TCP/IP,读取目标进程内存等方式实现游戏数据的获取,体感模拟算法和运动算法的实现,基于UDP通讯的伺服驱动器控制,基于Qt的UI界面开发以及通过DLL劫持实现运动过程中的VR姿态补偿。}
-		\resitem{ {\bf 职责描述:} 本人的主要工作为控制软件所有功能的开发与测试。}
-	\end{itemize}
+  \item
+  \ressubheading{VR体感模拟设备系列项目}{}{上海智槃智能科技有限公司}{2016.3 - 2018.2}
+  \begin{itemize}
+    \resitem{ {\bf 项目介绍:} 该项目包括VR赛车、跳伞、划船、滑雪、单车等体感模拟设备的开发，通过机器人的运动控制，模拟用户在玩VR游戏时的体感反馈。}
+    \resitem{ {\bf 职责描述:}
+      \begin{itemize}
+        \item 通过C++/Qt实现设备控制软件的功能和界面开发。
+        \item 通过共享内存、TCP/IP、读取目标进程内存等进程间通讯方式获取游戏中载具的运动数据。
+        \item 通过EtherCAT实现电机的运动控制，将游戏运动数据通过体感模拟算法和运动算法转换为六自由度运动平台等体感模拟设备的运动。
+        \item 通过对Vive OpenVR进行DLL劫持，实现体感模拟设备运动过程中的VR姿态补偿。
+      \end{itemize}}
+  \end{itemize}
 
-\item
-	\ressubheading{空间对接半物理仿真综合试验台}{}{上海交通大学重大装备设计与控制工程研究所}{2014.7 - 2016.3}
-	\begin{itemize}
-		\resitem{ {\bf 项目介绍:} 该项目主要完成空间对接半物理仿真试验台的研发,完成空间⻜行器的地面对接仿真试验。主要包括九自由度的并联机器人的运动控制,动力学仿真的实现,中央控制系统人机操作界面和实时监控系统的开发。}
-		\resitem{ {\bf 职责描述:} 本人的主要工作为采用LabVIEW完成上下位软件的开发,包括多系统实时通讯的实现,中央控制台人机交互界面和试验流程控制的开发,以及实时监控系统的数据采集和显示的开发。}
-	\end{itemize}
-
+  \item
+  \ressubheading{空间对接半物理仿真综合试验台}{}{上海交通大学重大装备设计与控制工程研究所}{2014.7 - 2016.3}
+  \begin{itemize}
+    \resitem{ {\bf 项目介绍:} 该项目主要完成空间对接半物理仿真试验台的研发,完成空间⻜行器的地面对接仿真试验。主要包括九自由度的并联机器人的运动控制,动力学仿真的实现,中央控制系统人机操作界面和实时监控系统的开发。}
+    \resitem{ {\bf 职责描述:} 本人的主要工作为采用LabVIEW完成上下位软件的开发,包括多系统实时通讯的实现,中央控制台人机交互界面和试验流程控制的开发,以及实时监控系统的数据采集和显示的开发。}
+  \end{itemize}
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \resheading{技能}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{itemize}
-
-\item {\bf 编程语言:} C++(熟练), Qt(熟练）, Matlab(熟练）, LabVIEW(精通）, Go(掌握）
-
-\item {\bf 平台:} Windows(熟练）, Linux(掌握）
-
-% \item {\bf 控制理论:} PID控制，运动轨迹规划，运动学，动力学
-
+  \item {\bf 编程语言:} Golang(熟练), OpenResty/Lua(熟练), Python(熟练), C++(掌握), Qt(掌握), Java(了解)
+  \item {\bf OS:} Linux(熟练), Windows(掌握)
+  \item {\bf 其他:} Django, PostgreSQL, Nginx, Docker, Jenkins, Git, Vue
+  % docker  kubernetes  jenkins/CI
+  % MySQL  PostgreSQL
+  % Redis RabbitMQ Kafka MongoDB
+  % Python: celery
+  % \item {\bf 控制理论:} PID控制，运动轨迹规划，运动学，动力学
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \resheading{在校情况}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{itemize}
-
-\item 2015.12 {\bf 全国研究生数学建模竞赛三等奖}
-
-\item 2011.12 {\bf 大学英语六级}
-
+  \item 2015.12 {\bf 全国研究生数学建模竞赛三等奖}
+  \item 2011.12 {\bf 大学英语六级}
+  % \item 2011.12 {\bf “国信蓝点杯”全国软件专业人才设计与开发大赛黑龙江赛区C语言组一等奖}
 \end{itemize}
-
 \end{document}

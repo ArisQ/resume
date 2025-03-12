@@ -19,6 +19,7 @@
 \usepackage{tocloft}
 \usepackage{etoolbox}
 \usepackage[colorlinks]{hyperref}
+\usepackage{tabularx}
 \robustify\cftdotfill
 
 %-----------------------------------------------------------
@@ -71,12 +72,41 @@
 %-----------------------------------------------------------
 \begin{document}
 
+\newif\ifsimplepersonalinfo
+% \simplepersonalinfotrue
+\simplepersonalinfofalse
+
+\ifsimplepersonalinfo
+
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
   \textbf{{\Large 乔 立}} & \\ % \textbf{\today} \\
   % \texttt{\href{mailto:qiaoli.pg@gmail.com}{qiaoli.pg@gmail.com}} & \\ % \texttt{\url{https://github.com/ArisQ}} \\
   % \texttt{15026602557} & \\ % 软件工程师（南宁）
   \texttt{\href{mailto:qiaoliyx@sina.com}{qiaoliyx@sina.com}} & 15026602557 \\ % \texttt{\url{https://github.com/ArisQ}} \\
 \end{tabular*}
+
+\else
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \resheading{基本信息}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \begin{tabularx}{\linewidth}{l @{\hspace{0.1cm}} X l @{\hspace{0.1cm}} X l @{\hspace{0.1cm}} l}
+\begin{tabularx}{\linewidth}{l X l X l l}
+\textit{姓名：} & \textit{乔立} &
+\textit{性别：} & \textit{男} &
+\textit{出生年月：} & 1991.6 \\
+
+\textit{民族：} & \textit{汉} &
+\textit{籍贯：} & \textit{江苏省兴化市} &
+\textit{政治面貌：} & \textit{中共党员} \\
+
+\textit{电话：} & 15026602557 &
+\textit{邮箱：} & \texttt{\href{mailto:qiaoliyx@sina.com}{qiaoliyx@sina.com}} &
+&  \\
+\end{tabularx}
+
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \resheading{教育经历}
@@ -181,12 +211,13 @@
   \ressubheading{空间对接半物理仿真综合试验台}{}{上海交通大学重大装备设计与控制工程研究所}{2014.7 - 2016.3}
   \begin{itemize}
     \resitem{ {\bf 项目介绍:} 该项目主要完成空间对接半物理仿真试验台的研发,完成空间⻜行器的地面对接仿真试验。主要包括九自由度的并联机器人的运动控制,动力学仿真的实现,中央控制系统人机操作界面和实时监控系统的开发。}
-    \resitem{ {\bf 职责描述:} 本人的主要工作为采用LabVIEW完成上下位软件的开发,包括多系统实时通讯的实现,中央控制台人机交互界面和试验流程控制的开发,以及实时监控系统的数据采集和显示的开发。}
+    \resitem{ {\bf 职责描述:} 本人的主要工作为采用LabVIEW完成上下位软件的开发,包括基于光纤反射内存的多系统实时通讯的实现,中央控制台人机交互界面和试验流程控制的开发,以及实时监控系统的数据采集和显示的开发。}
   \end{itemize}
 \end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \clearpage
 \resheading{证书}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
@@ -201,7 +232,7 @@
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
+% \clearpage
 % \clearpage
 \resheading{技能}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
